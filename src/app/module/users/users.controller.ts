@@ -43,9 +43,25 @@ const getSingleUser = async (req: Request, res: Response) => {
     console.log(err);
   }
 };
+const deleteAUser = async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    userServices.deleteUserFromDB(userId);
+    console.log(userId);
+
+    res.status(200).json({
+      success: true,
+      message: 'User deleted successfully!',
+      data: null,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const UsersController = {
   createUsers,
   getAllUsers,
   getSingleUser,
+  deleteAUser,
 };
