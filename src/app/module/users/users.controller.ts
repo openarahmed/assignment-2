@@ -59,9 +59,33 @@ const deleteAUser = async (req: Request, res: Response) => {
   }
 };
 
+const updateAUser = async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    const user = req.body.user;
+    // Assuming the entire updated user data is sent in the request body
+
+    const result = await userServices.updateUserInDB(userId, user);
+
+    res.status(200).json({
+      success: true,
+      message: 'User updated successfully!',
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to update user',
+      data: null,
+    });
+  }
+};
+
 export const UsersController = {
   createUsers,
   getAllUsers,
   getSingleUser,
   deleteAUser,
+  updateAUser,
 };
