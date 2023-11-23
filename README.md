@@ -17,7 +17,7 @@ Here is the live site link:
  https://level-2-assignment-2-phi.vercel.app/
 ```
 
-## Installation
+## Technology used
 
 1. Backend: Utilizes Node.js with Express for RESTful API development.
 2. Database: Stores data in MongoDB for flexible and scalable data management.
@@ -44,17 +44,10 @@ Once you've installed the app, you can start it by running:
 
 Contributions are always welcome!
 
-See `contributing.md` for ways to get started.
-
-Please adhere to this project's `code of conduct`.
-
-If you'd like to contribute to this project, please follow these guidelines:
-
-1. Fork the repository and create a new branch for your changes.
-2. Make your changes and write tests to ensure they work as expected.
-3. Submit a pull request and describe your changes in detail.
-
-Please note that this project is released under the MIT License, and all contributions will be subject to its terms.
+1. Clone the Repository: Provide the command to clone the repository locally.
+2. Install Dependencies: Specify how to install project dependencies. For Node.js projects, it's usually npm install.
+3. Configuration: If your project requires configuration (e.g., environment variables), document these settings and where to find/change them.
+4. Running the Project: Explain how to start the project. For Node.js-based projects, it might involve running npm start or any custom scripts.
 
 ## Credits
 
