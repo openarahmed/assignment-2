@@ -10,13 +10,13 @@ import bcrypt from 'bcrypt';
 import config from '../config';
 
 const fullName = new Schema<FUllName>({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  firstName: { type: String, required: [true, 'FirstName is must Required'] },
+  lastName: { type: String, required: [true, 'LastName is must Required'] },
 });
 const address = new Schema<Address>({
-  street: { type: String, required: true },
-  city: { type: String, required: true },
-  country: { type: String, required: true },
+  street: { type: String, required: [true, 'street is required'] },
+  city: { type: String, required: [true, 'city is required'] },
+  country: { type: String, required: [true, 'country is required'] },
 });
 const order = new Schema<Order>({
   productName: String,
@@ -24,15 +24,31 @@ const order = new Schema<Order>({
   quantity: Number,
 });
 const usersSchema = new Schema<Users, UserModelStatic>({
-  userId: { type: Number, required: true },
-  username: { type: String, required: true },
-  password: { type: String, required: true },
-  fullName: fullName,
-  age: { type: Number, required: true },
-  email: { type: String, required: true },
-  isActive: { type: Boolean, required: true },
+  userId: {
+    type: Number,
+    required: [true, 'userId is required'],
+    unique: true,
+    maxlength: [12, 'Maximum 12 charecters'],
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: { type: String, required: [true, 'Password must is required'] },
+  fullName: {
+    type: fullName,
+    required: true,
+  },
+  age: { type: Number, required: [true, 'age is required'] },
+  email: {
+    type: String,
+    required: [true, 'email must is required'],
+    unique: true,
+  },
+  isActive: { type: Boolean, required: [true, 'isActive or not is required'] },
   hobbies: [String, String],
-  address: address,
+  address: { type: address, required: true },
   order: [order],
 });
 

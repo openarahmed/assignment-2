@@ -1,10 +1,12 @@
 import { Request, Response } from 'express';
 import { userServices } from './users.service';
+import userJoiSchema from './user.validation';
 
 const createUsers = async (req: Request, res: Response) => {
   try {
     const user = req.body.user;
-
+    const { error, value } = userJoiSchema.validate(user);
+    console.log(error, value);
     const result = await userServices.createusersToDB(user);
 
     res.status(200).json({
