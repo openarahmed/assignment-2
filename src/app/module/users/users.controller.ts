@@ -5,8 +5,8 @@ import userJoiSchema from './user.validation';
 const createUsers = async (req: Request, res: Response) => {
   try {
     const user = req.body;
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const { error, value } = userJoiSchema.validate(user);
-    console.log(error, value);
     const result = await userServices.createusersToDB(user);
 
     res.status(200).json({
@@ -21,7 +21,6 @@ const createUsers = async (req: Request, res: Response) => {
       message: err.message || 'something went wrong',
       error: err,
     });
-    console.log(err);
   }
 };
 const getAllUsers = async (req: Request, res: Response) => {
@@ -33,8 +32,16 @@ const getAllUsers = async (req: Request, res: Response) => {
       message: 'Users fetched successfully!',
       data: result,
     });
-  } catch (err) {
-    console.log(err);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: 'User not found',
+      error: {
+        code: 404,
+        description: 'User not found!',
+      },
+    });
   }
 };
 const getSingleUser = async (req: Request, res: Response) => {
@@ -65,7 +72,6 @@ const deleteAUser = async (req: Request, res: Response) => {
     const userId = req.params.userId;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     await userServices.deleteUserFromDB(userId);
-    console.log(userId);
 
     res.status(200).json({
       success: true,
@@ -107,7 +113,6 @@ const updateAUser = async (req: Request, res: Response) => {
         description: 'User not found!',
       },
     });
-    console.log(err);
   }
 };
 
@@ -133,7 +138,6 @@ const createOrderAUser = async (req: Request, res: Response) => {
         description: err.message || 'Internal server error',
       },
     });
-    console.log(err);
   }
 };
 
@@ -159,7 +163,6 @@ const getUserOrders = async (req: Request, res: Response) => {
         description: 'User not found!',
       },
     });
-    console.log(err);
   }
 };
 const userOrderTotalPrice = async (req: Request, res: Response) => {
@@ -182,7 +185,6 @@ const userOrderTotalPrice = async (req: Request, res: Response) => {
         description: 'User not found!',
       },
     });
-    console.log(err);
   }
 };
 
