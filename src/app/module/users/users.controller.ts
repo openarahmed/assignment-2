@@ -4,7 +4,7 @@ import userJoiSchema from './user.validation';
 
 const createUsers = async (req: Request, res: Response) => {
   try {
-    const user = req.body.user;
+    const user = req.body;
     const { error, value } = userJoiSchema.validate(user);
     console.log(error, value);
     const result = await userServices.createusersToDB(user);
