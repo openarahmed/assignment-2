@@ -47,7 +47,7 @@ Contributions are always welcome!
 1. Clone the Repository: Provide the command to clone the repository locally.
 2. Install Dependencies: Specify how to install project dependencies. For Node.js projects, it's usually npm install.
 3. Configuration: If your project requires configuration (e.g., environment variables), document these settings and where to find/change them.
-4. Running the Project: Explain how to start the project. For Node.js-based projects, it might involve running npm start or any custom scripts.
+4. Running the Project: Explain how to start the project. For Node.js-based projects, it might involve running npm start or any custom scripts..
 
 ## Credits
 
