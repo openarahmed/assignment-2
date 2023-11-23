@@ -21,7 +21,7 @@ Here is the live site link:
 
 1. Backend: Utilizes Node.js with Express for RESTful API development.
 2. Database: Stores data in MongoDB for flexible and scalable data management.
-3. Deployment: Hosted on Vercel with automated deployment workflows.
+3. Deployment: Hosted on Vercel with automated deployment workflows...
 
 ## Installation
 
